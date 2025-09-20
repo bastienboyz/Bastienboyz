@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bastienboyz - Creative Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <canvas id="canvas-bg"></canvas>
+
+    <div id="landing-page">
+        <div class="landing-container">
+            <img src="https://img5.pic.in.th/file/secure-sv1/IMG_28854618b025ec6479f2.png" alt="Bastienboyz Logo" class="logo">
+            <button id="enter-btn" class="enter-button">Member Bastienboyz</button>
+            <a href="https://youtube.com/@bastienboys?si=eDWH0_hFfmSwhWNU" target="_blank" class="youtube-button">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+        </div>
+        <footer>
+            <p>Designed by Lord Oreo © 2025</p>
+        </footer>
+    </div>
+    
+    <div id="members-page" class="main-layout">
+        <div class="main-wrapper">
+            <header>
+                <img src="https://img5.pic.in.th/file/secure-sv1/IMG_28854618b025ec6479f2.png" alt="Bastienboyz Logo" class="logo">
+            </header>
+
+            <main>
+                <div class="search-container scroll-reveal">
+                    <input type="text" id="searchInput" placeholder="Search member name...">
+                </div>
+
+                <section class="member-section scroll-reveal" id="leader-section">
+                    <h2 class="section-title">MEMBER LEADER</h2>
+                    <div class="member-grid leader-grid"></div>
+                </section>
+                
+                <section class="member-section scroll-reveal" id="members-section">
+                    <h2 class="section-title">MEMBER BASTIENBOYZ</h2>
+                    <div class="member-grid"></div>
+                </section>
+
+                <div class="pagination-controls scroll-reveal">
+                    <button id="prevBtn">ก่อนหน้า</button>
+                    <span id="pageInfo"></span>
+                    <button id="nextBtn">ถัดไป</button>
+                </div>
+            </main>
+        </div>
+        
+        <button id="back-to-landing-btn" class="fixed-btn">
+            <i class="fas fa-home"></i> กลับหน้าหลัก
+        </button>
+
+        <button id="theme-toggle" class="fixed-btn">
+            <i class="fas fa-sun"></i>
+        </button>
+
+        <div id="audio-player-container" class="fixed-controls">
+            <audio id="gang-music" src="https://files.catbox.moe/dlxy7h.mp3" preload="auto" loop></audio>
+            <button id="play-pause-btn" class="audio-btn"><i class="fas fa-play"></i></button>
+            <div class="volume-control">
+                <button id="mute-btn" class="audio-btn"><i class="fas fa-volume-high"></i></button>
+                <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.1">
+            </div>
+        </div>
+        <footer>
+            <p>Designed by Lord Oreo © 2025</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
