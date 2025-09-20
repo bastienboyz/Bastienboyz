@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const pageInfo = document.getElementById('pageInfo');
     const paginationControls = document.querySelector('.pagination-controls');
     const audioPlayerContainer = document.getElementById('audio-player-container');
-    const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const canvas = document.getElementById('canvas-bg');
     const ctx = canvas.getContext('2d');
@@ -115,14 +114,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
     window.addEventListener('scroll', revealElements);
-
-    // Initial theme check
-    const savedTheme = localStorage.getItem('bastienTheme') || 'light';
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        themeToggleBtn.querySelector('i').classList.remove('fa-sun');
-        themeToggleBtn.querySelector('i').classList.add('fa-moon');
-    }
 
     function createMemberCardHTML(member, isLeader = false) {
         const cardClass = isLeader ? 'member-card leader-card' : 'member-card';
@@ -287,27 +278,12 @@ document.addEventListener('DOMContentLoaded', function () {
         muteBtn.addEventListener('click', () => {
             audio.muted = !audio.muted;
         });
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                themeToggleBtn.querySelector('i').classList.remove('fa-moon');
-                themeToggleBtn.querySelector('i').classList.add('fa-sun');
-                localStorage.setItem('bastienTheme', 'light');
-            } else {
-                body.classList.add('dark-mode');
-                themeToggleBtn.querySelector('i').classList.remove('fa-sun');
-                themeToggleBtn.querySelector('i').classList.add('fa-moon');
-                localStorage.setItem('bastienTheme', 'dark');
-            }
-        });
     }
 
     enterBtn.addEventListener('click', () => {
         landingPage.style.display = 'none';
         membersPage.style.display = 'block';
         audioPlayerContainer.style.display = 'flex';
-        themeToggleBtn.style.display = 'flex';
         backToLandingBtn.style.display = 'flex';
         
         currentPage = 1;
@@ -330,7 +306,6 @@ document.addEventListener('DOMContentLoaded', function () {
         membersPage.style.display = 'none';
         landingPage.style.display = 'flex';
         audioPlayerContainer.style.display = 'none';
-        themeToggleBtn.style.display = 'none';
         backToLandingBtn.style.display = 'none';
         
         currentPage = 1;
@@ -344,7 +319,6 @@ document.addEventListener('DOMContentLoaded', function () {
         landingPage.style.display = 'none';
         membersPage.style.display = 'block';
         audioPlayerContainer.style.display = 'flex';
-        themeToggleBtn.style.display = 'flex';
         backToLandingBtn.style.display = 'flex';
         fetchAndDisplayMembers();
     }
