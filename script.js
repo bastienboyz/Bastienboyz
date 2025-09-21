@@ -309,16 +309,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     backToLandingBtn.addEventListener('click', () => {
-        membersPage.style.display = 'none';
-        landingPage.style.display = 'flex';
-        audioPlayerContainer.style.display = 'none';
-        backToLandingBtn.style.display = 'none';
-        
-        currentPage = 1;
-        searchInput.value = '';
-        
-        const audio = document.getElementById('gang-music');
-        audio.pause();
+        // การแก้ไข: ใช้ window.location.reload() เพื่อรีโหลดหน้าเว็บทั้งหมด
+        window.location.reload();
     });
 
     if (window.location.hash === '#members') {
