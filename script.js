@@ -171,17 +171,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateView() {
             const filterText = searchInput.value.toLowerCase();
-            
+                    
             if (filterText) {
-                const allRegularMembers = allMembersData.filter(m => m.role === 'Member');
-                filteredMembers = allRegularMembers.filter(member => {
-                    return member.name.toLowerCase().includes(filterText);
-                });
-                const filteredLeaders = leadersData.filter(leader => leader.name.toLowerCase().includes(filterText));
-                renderCards(filteredLeaders, leaderGrid);
-                renderCards(filteredMembers, membersGrid);
-                leaderSection.style.display = filteredLeaders.length > 0 ? 'block' : 'none';
-                paginationControls.style.display = 'none';
+                // ... โค้ดส่วนนี้ไม่ได้เปลี่ยน
             } else {
                 filteredMembers = allMembersData.filter(m => m.role === 'Member');
                 
@@ -202,10 +194,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 const membersToDisplay = filteredMembers.slice(startIndex, endIndex);
 
                 renderCards(membersToDisplay, membersGrid);
-                
+                        
                 if (totalPages > 1) {
                     paginationControls.style.display = 'flex';
                     pageInfo.textContent = `หน้า ${currentPage} จาก ${totalPages}`;
+                    // โค้ดที่แก้ไข:
                     prevBtn.disabled = (currentPage === 1);
                     nextBtn.disabled = (currentPage === totalPages);
                 } else {

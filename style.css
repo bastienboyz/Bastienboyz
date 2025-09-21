@@ -98,6 +98,20 @@ body {
 .youtube-button i {
     margin-right: 10px;
 }
+
+/* ปรับขนาดและสไตล์สำหรับปุ่ม Member Bastienboyz */
+.member-btn {
+    padding: 15px 40px;
+    font-size: 20px;
+}
+
+/* ปรับขนาดและสไตล์สำหรับปุ่ม YouTube */
+.youtube-link {
+    padding: 10px 40px;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
 /* Members Page */
 #members-page {
     display: none;
@@ -364,7 +378,6 @@ header {
 }
 footer {
     text-align: center;
-    margin-top: 50px;
     padding: 20px;
     font-size: 0.8rem;
     color: var(--color-text-secondary);
