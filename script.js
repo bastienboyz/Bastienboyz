@@ -173,7 +173,21 @@ document.addEventListener('DOMContentLoaded', function () {
             const filterText = searchInput.value.toLowerCase();
                     
             if (filterText) {
-                // ... โค้ดส่วนนี้ไม่ได้เปลี่ยน
+                // Filter all members (including leaders) based on the search input
+                const combinedMembers = allMembersData;
+                filteredMembers = combinedMembers.filter(member =>
+                    member.name.toLowerCase().includes(filterText) ||
+                    (member.role && member.role.toLowerCase().includes(filterText))
+                );
+                
+                // Render all search results in the main members grid
+                renderCards(filteredMembers, membersGrid);
+                
+                // Hide leader section and pagination
+                leaderGrid.innerHTML = '';
+                leaderSection.style.display = 'none';
+                paginationControls.style.display = 'none';
+
             } else {
                 filteredMembers = allMembersData.filter(m => m.role === 'Member');
                 
@@ -186,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 const totalPages = Math.ceil(filteredMembers.length / itemsPerPage);
-                if (currentPage > totalPages) {
+                if (totalPages > 0 && currentPage > totalPages) {
                     currentPage = totalPages;
                 }
                 const startIndex = (currentPage - 1) * itemsPerPage;
@@ -198,7 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (totalPages > 1) {
                     paginationControls.style.display = 'flex';
                     pageInfo.textContent = `หน้า ${currentPage} จาก ${totalPages}`;
-                    // โค้ดที่แก้ไข:
                     prevBtn.disabled = (currentPage === 1);
                     nextBtn.disabled = (currentPage === totalPages);
                 } else {
